@@ -1,0 +1,162 @@
+@import 'variables';
+@import 'palette';
+
+@import '98';
+@import 'core';
+@import 'grid';
+@import 'navbar';
+@import 'sidebar';
+@import 'buttons';
+@import 'window';
+
+@import 'overrides';
+@import 'helpers';
+
+/**
+ * Misc
+ */
+.layersp5-layers-wrap {
+  height: 100%;
+}
+.layersp5-layers-wrap-outer {
+  box-shadow: var(--border-field);
+  padding: 2px !important;
+}
+
+.devlog-link-date {
+  margin-left: 0.5rem;
+}
+
+html {
+  .code-group__nav {
+    background: transparent;
+    padding-left: 0;
+    .code-group__ul {
+      margin-bottom: var(--element-spacing);
+    }
+    .code-group__li {
+      margin-right: var(--element-spacing)
+    }
+  
+    .code-group__nav-tab {
+      background: var(--surface);
+      color: #222;
+    }
+  }
+
+  h3 + [class^=language-] {
+    margin-top: calc(var(--element-spacing)*2)
+  }
+}
+.code-group-item > [class^="language-"] {
+  box-shadow: var(--border-field);
+}
+.page > div > [class^="language-"] {
+  box-shadow: var(--border-field);
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  padding-bottom: 2px !important;
+
+  .code-group__nav {
+    margin-top: 0;
+  }
+}
+.page > div > [class^="language-"] {
+  margin-bottom: calc(var(--element-spacing) * 2);
+}
+html .theme-default-content pre, .theme-default-content pre[class*=language-] {
+  margin-bottom: 0
+}
+
+.next-element-is-changelog + table {
+  width: 100%;
+  display: block;
+
+  td:nth-child(1) {
+    width: 100px;
+  }
+  td:nth-child(2) {
+    width: 80px;
+  }
+}
+
+/**
+ * Demo styles
+ */
+.multi-hand-scrollers {
+  td {
+    padding: 0;
+  
+    > div {
+      max-height: 300px;
+      overflow: auto;
+
+      > div {
+        height: 1000px;
+        width: 1000px;
+        background: url(/favicon.png);
+        background-repeat: space;
+        background-size: 32px;
+        opacity: 0.25;
+      }
+    }
+  }
+}
+
+/**
+ * Theme Overrides
+ */
+html {
+  .sidebar .sidebar-sub-headers {
+    padding-left: 2em;
+  }
+
+  table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+}
+
+[class^='flex'] {
+  display: flex
+}
+
+.flex-row {
+  flex-direction: row
+}
+
+.verticle-middle-children {
+  & > * {
+    vertical-align: middle
+  }
+}
+
+.space-children {
+  & > * {
+    display: inline-block;
+    margin-right: 10px
+  }
+}
+
+img {
+  max-width: 100%
+}
+
+hr {
+  margin: 0;
+  border: none;
+  width: 400px;
+  height: 1px;
+  opacity: 0.5;
+  background: linear-gradient(
+    to right,
+    red 20%,
+    yellow 20%,
+    yellow 36%,
+    green 36%,
+    green 60%,
+    blue 60%,
+    blue 100%
+  )
+}

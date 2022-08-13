@@ -1,0 +1,110 @@
+html {
+  .window {
+    .title-bar {
+      button {
+        margin-left: 3px;
+        &:active {
+          padding: 0 !important;
+        }
+        &:hover {
+          background-color: silver !important;
+        }
+      }
+    }
+
+    .window-body > iframe {
+      margin: 0;
+      min-height: 350px;
+    }
+  
+    &.maximized {
+      .devlog-meta {display: none}
+      
+      .window-body section {
+        overflow: auto;
+        width: 740px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .window-body > iframe {
+        height: 100% 
+      }
+
+      .layersp5-layers-wrap {
+        height: 100% !important
+      }
+    }
+  }
+}
+
+.window-component {
+  margin-top: .5em;
+  flex-direction: column;
+  display: flex;
+
+  &.mb-0 {
+    margin-bottom: 0 !important;
+  }
+
+  &.handsfree-show-when-started {
+    display: none;
+  }
+
+  button[aria-label='Restore'] {
+    display: none;
+  }
+
+  .window-body {
+    overflow: hidden;
+    flex: auto;
+  }
+
+  &.minimized {
+    .window-body {
+      display: none !important;
+    }
+
+    button[aria-label='Minimize'] {
+      display: none;
+    }
+    button[aria-label='Restore'] {
+      display: inline-block;
+    }
+  }
+  
+  &.maximized {
+    position: fixed;
+    margin-top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    // top: 56px;
+    // height: calc(100vh - 61px) !important;
+    top: 0;
+    height: 100%;
+
+    button[aria-label='Maximize'] {
+      display: none;
+    }
+    button[aria-label='Restore'] {
+      display: inline-block;
+    }
+
+    .layersp5-layers-wrap-outer {
+      height: calc(100% - 8px) !important;
+    }
+  }
+}
+
+.handsfree-started {
+  .window-component.handsfree-show-when-started {
+    display: flex;
+  }
+}

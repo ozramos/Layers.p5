@@ -1,0 +1,150 @@
+html {
+  // Visibility
+  .hidden {
+    display: none
+  }
+
+  // Spacing
+  .mt-0 {
+    margin-top: 0
+  }
+  .mb-0 {
+    margin-bottom: 0
+  }
+  .mt-md {
+    margin-top: 1em
+  }
+  .mb-md {
+    margin-bottom: 1em
+  }
+  .pt-0 {
+    padding-top: 0
+  }
+  .pb-0 {
+    padding-bottom: 0
+  }
+  .pad {
+    padding: 20px
+  }
+
+  // Alignment
+  .verticle-middle-children {
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1rem
+    }
+  }
+
+  .align-top {
+    align-items: start
+  }
+  .space-children {
+    > * {
+      margin-right: 1rem
+    }
+  }
+
+  .text-center {
+    text-align: center
+  }
+  .text-left {
+    text-align: left
+  }
+
+  .flip {
+    transform: scale(-1, 1)
+  }
+
+  // Sizing
+  .block {
+    width: 100%
+  }
+
+  .full-width {
+    display: block;
+    width: 100%
+  }
+
+  .block-children > * {
+    width: 100%
+  }
+
+  // Examples
+  .demo-focus-area {
+    position: relative;
+
+    > div {
+      overflow: auto;
+      height: 300px;
+
+      > div {
+        height: 2000px;
+        // @see http://www.patternify.com/
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAP0lEQVQoU42Q0QoAIAgDz///aMPAKKeQb26HTg0tB6zKVUhI4Bus5tMn2K4Djh7gBGXM7Uvo5riQ/BfUNwwTWfn+Cgg4zkoRAAAAAElFTkSuQmCC')
+      }
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      opacity: 0.35;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      background: $blockRed;
+    }
+
+    &:after {
+      top: 0
+    }
+    &:before {
+      bottom: 0
+    }
+
+    &.no-guides {
+      &:after, &:before {
+        display: none
+      }
+    }
+  }
+
+  .demo-negative-scroll-zone {
+    .demo-focus-area {
+      &:after {
+        top: -100px
+      }
+      &:before {
+        bottom: -100px
+      }
+    }
+  }
+
+  // Normal fields
+  .normal-fields {
+    [type="radio"], [type="checkbox"] {
+      appearance: radio;
+      -webkit-appearance: radio;
+      opacity: 1;
+      position: relative;
+    }
+    [type="checkbox"] {
+      appearance: checkbox;
+      -webkit-appearance: checkbox
+    }
+  }
+    
+  // Display
+  .cursor-pointer {
+    cursor: pointer
+  }
+}
+
+// Make things large
+input[type="radio"].large,
+input[type="checkbox"].large {
+  height: 60px;
+  width: 60px;
+  margin-right: 1em
+}

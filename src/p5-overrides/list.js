@@ -1,0 +1,202 @@
+export default [
+  // Globals
+  '_renderer',
+  'canvas',
+  'drawingContext',
+
+  // Environment
+  'describe',
+  'describeElement',
+  'textOutput',
+  'gridOutput',
+  'print',
+  'focused',
+  'cursor',
+  'frameRate',
+  'noCursor',
+  'displayWidth',
+  'displayHeight',
+  'windowWidth',
+  'windowHeight',
+  'windowResized',
+  'width',
+  'height',
+  'fullscreen',
+  'pixelDensity',
+  'displayDensity',
+  'getURL',
+  'getURLPath',
+  'getURLParams',
+
+  // Color
+  // Creating and reading
+  'alpha',
+  'blue',
+  'brightness',
+  'color',
+  'green',
+  'hue',
+  'lerpColor',
+  'red',
+  'saturation',
+  
+  // Setting
+  'background',
+  'clear',
+  'colorMode',
+  'fill',
+  'noFill',
+  'noStroke',
+  'stroke',
+  'erase',
+  'noErase',
+
+  // Shape
+  // 2d primitives
+  'arc',
+  'ellipse',
+  'circle',
+  'line',
+  'point',
+  'quad',
+  'rect',
+  'square',
+  'triangle',
+  // Vertex
+  'beginContour',
+  'beginShape',
+  'bezierVertex',
+  'curveVertex',
+  'endContour',
+  'endShape',
+  'quadraticVertex',
+  'vertex',
+  'normal',
+  // Attributes
+  'ellipsesMode',
+  'noSmooth',
+  'rectMode',
+  'smooth',
+  'strokeCap',
+  'strokeJoin',
+  'strokeWeight',
+  // 3D primitives
+  'plane',
+  'box',
+  'sphere',
+  'cylinder',
+  'cone',
+  'ellipsoid',
+  'torus',
+  // Curves
+  'bezier',
+  'bezierDetail',
+  'bezierPoint',
+  'bezierTangent',
+  'curve',
+  'curveDetail',
+  'curvePoint',
+  'curveTangent',
+  'curveTightness',
+  // 3D Models
+  'loadModel',
+  'model',
+
+  // Structure
+  'remove',
+  'noLoop',
+  'loop',
+  'isLooping',
+  'push',
+  'pop',
+  'redraw',
+
+  // Rendering
+  'blendMode',
+  'setAttributes',
+
+  // Transform
+  'applyMatrix',
+  'resetMatrix',
+  'rotate',
+  'rotateX',
+  'rotateY',
+  'rotateZ',
+  'scale',
+  'shearX',
+  'shearY',
+  'translate',
+
+  // Image
+  'saveCanvas',
+  'saveFrames',
+  'loadImage',
+  'image',
+  'tint',
+  'noTint',
+  'imageMode',
+  'pixels',
+  'blend',
+  'copy',
+  'filter',
+  'get',
+  'loadPixels',
+  'set',
+  'updatePixels',
+
+  // Vector
+  'createVector',
+
+  // Noise
+  'noise',
+  'noiseDetail',
+  'noiseSeed',
+
+  // Typography
+  'textAlign',
+  'textLeading',
+  'textSize',
+  'textStyle',
+  'textWidth',
+  'textAscent',
+  'textDescent',
+  'textWrap',
+  'loadFont',
+  'text',
+  'textFont',
+
+  // 3D
+  // Interaction
+  'orbitControl',
+  'debugMode',
+  'noDebugMode',
+  // Lights
+  'ambientLight',
+  'directionalLight',
+  'pointLight',
+  'specularColor',
+  'lights',
+  'lightsFalloff',
+  'spotLight',
+  'noLights',
+  // Material
+  'loadShader',
+  'createShader',
+  'shader',
+  'resetShader',
+  'texture',
+  'textureMode',
+  'textureWrap',
+  'normalMaterial',
+  'ambientMaterial',
+  'emissiveMaterial',
+  'specularMaterial',
+  'shininess',
+  // Camera
+  'camera',
+  'perspective',
+  'ortho',
+  'frustum',
+  'createCamera',
+  'setCamera'
+]

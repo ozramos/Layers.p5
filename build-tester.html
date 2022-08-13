@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Use this to test that the build works before publishing to npm -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></script>
+  <script src="./dist/layers.p5.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    Layers.create(() => {
+      new Layer({
+        menu: {
+          bg: Layers.default.colors
+        },
+        draw () {
+          background($bg)
+        }
+      })
+    })
+
+    new Layer({
+      menu: {
+        bg: Layers.default.colors
+      },
+      draw () {
+        rectMode(CENTER)
+        fill($bg)
+        stroke(255)
+        strokeWeight(4)
+        rect(width/2, height/2, 100, 100)
+      }
+    })
+  </script>
+</body>
+</html>

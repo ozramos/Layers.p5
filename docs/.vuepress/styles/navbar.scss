@@ -1,0 +1,62 @@
+html {
+  .navbar, .sidebar,
+  .navbar .links {
+    background: $panelBg
+  }
+  .navbar {
+    [aria-label="GitHub"] {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      background: url('/branding/github.png') no-repeat;
+      background-size: 35px 35px;
+      color: transparent;
+      top: -6px;
+      position: relative;
+
+      > span {display: none;}
+    }
+
+    .site-name {
+      color: $link;
+    }
+  }
+
+  .search-box input {
+    background-position: 7px 7px;
+    color: $color;
+    font-size: 1em;
+    padding-left: 2em;
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .search-box {
+    margin-right: 2rem !important
+  }
+
+  header.navbar {
+    button {
+      span:last-child {
+        display: none
+      }
+    }
+
+    .can-hide {
+      display: block
+    }
+
+    [href="/"].router-link-active {
+      background: url('/layersp5-m.png') no-repeat;
+      background-position: top left;
+      background-size: 55px 35px;
+      display: inline-block;
+      width: 55px;
+      height: 35px;
+
+      img {
+        display: none;
+      }
+    }
+  }
+}

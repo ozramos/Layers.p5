@@ -1,0 +1,200 @@
+html {
+  .sidebar {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: none;
+    height: 100%;
+    padding-bottom: 68px;
+
+    > .sidebar-items {
+      width: auto;
+      overflow: auto;
+      flex: 1 1 auto;
+    }
+
+    .nav-items { 
+      display: none;
+    }
+  }
+
+  a.sidebar-item,
+  a.sidebar-item.active,
+  .sidebar-heading.clickable.active {
+    border-left-color: transparent !important;
+  }
+
+  a.sidebar-item.active + ul .sidebar-item.active {
+    background: none;
+    color: $color;
+    font-weight: 700;
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-color: $link;
+    outline-style: dotted;
+    outline-width: 1px;
+  }
+
+  .sidebar-heading.clickable {
+    background: none;
+    transition: none;
+  }
+
+  .sidebar-group.is-sub-group > .sidebar-heading {
+    padding-left: 0.5em;
+  }
+
+  .sidebar-heading.clickable.active,
+  .sidebar-heading.clickable:hover,
+  .sidebar-heading.clickable:active {
+    font-weight: normal;
+    color: $color;
+  }
+
+  .sidebar > .sidebar-items > li > a.sidebar-item,
+  .sidebar-heading {
+    font-weight: normal;
+    font-size: 1em;
+  }
+    
+  .sidebar-items.sidebar-group-items {
+    overflow: visible;
+  }
+
+  a.sidebar-item,
+  .sidebar-heading,
+  .sidebar-group a.sidebar-item {
+    padding-left: .5em;
+  }
+
+  .sidebar > .sidebar-items > li:not(:first-child) {
+    margin-top: 0;
+  }
+
+  .sidebar-mask {
+    background: url('/icon/scrollbar-background.svg');
+
+    &:before {
+      content: '';
+      position: fixed;
+      opacity: .5;
+      background: $color;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  // Icons
+  .sidebar {
+    a[href='https://groups.google.com/g/handsfreejs'],
+    a[href='https://github.com/midiblocks/handsfree'],
+    a[href='https://discord.gg/JeevWjTEdu'],
+    a[href='/about/'],
+    a[href='/example/aframe/'],
+    a[href='/app/browser/'],
+    a[href='https://twitter.com/midiblocks'] {
+      margin-bottom: -5px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        background-image: url('/branding/github.png');
+        background-size: 1.4em 1.4em;
+        vertical-align: middle;
+        margin-left: -3px;
+      }
+    }
+        
+    a[href='https://github.com/midiblocks/handsfree']:before {
+      margin-left: 0;
+      margin-right: 4px;
+    }
+
+    a[href='https://twitter.com/midiblocks'] {
+      // margin-top -2em
+    
+      &:before {
+        background-image: url('/branding/twitter.png');
+        width: 1.4em;
+        height: 1.4em;
+        background-size: 1.4em 1.4em;
+        margin-right: 3px;
+        margin-left: 0;
+      }
+    }
+
+    a[href='https://groups.google.com/g/handsfreejs']:before {
+      background-image: url('/branding/google-groups.png');
+      width: 1.4em;
+      height: 1.4em;
+      background-size: 1.4em 1.4em;
+      margin-right: 3px;
+      margin-left: 0;
+    }
+
+    a[href='https://discord.gg/JeevWjTEdu']:before {
+      background-image: url('/branding/discord.png');
+      width: 1.4em;
+      height: 1.4em;
+      background-size: 1.4em 1.4em;
+      margin-right: 3px;
+      margin-left: 0;
+    }
+
+    a[href='/about/']:before {
+      background-image: url('/favicon.png');
+      width: 1em;
+      height: 1em;
+      background-size: 1em 1em;
+      margin-right: 10px;
+      margin-left: 0;
+    }
+
+    a[href='/app/browser/']:before {
+      background-image: url('/branding/chrome.png');
+      width: 1em;
+      height: 1em;
+      background-size: 1em 1em;
+      margin-right: 10px;
+      margin-left: 0;
+    }
+
+    a[href='/example/aframe/']:before {
+      background-image: url('/branding/aframe.png');
+      width: 1em;
+      height: 1em;
+      background-size: 1em 1em;
+      margin-right: 10px;
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: $MQMobile) {
+  html body .sidebar {
+    padding-top: 70px;
+    border-right-width: 1px;
+    border-right: 1px solid #eaecef;
+    padding-bottom: 10px;
+
+    .navbar-items {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $MQDesktop) {
+  html body {
+    .sidebar {
+      width: 450px;
+    }
+
+    .page {
+      padding-left: 470px;
+    }
+  }
+}

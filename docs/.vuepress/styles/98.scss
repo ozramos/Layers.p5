@@ -1,0 +1,639 @@
+:root {
+  --surface: #c0c0c0;
+  --button-highlight: #fff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+  --dialog-blue: #000080;
+  --dialog-blue-light: #1084d0;
+  --dialog-gray: #808080;
+  --dialog-gray-light: #b5b5b5;
+  --link-blue: #00f;
+  --element-spacing: 8px;
+  --grouped-button-spacing: 4px;
+  --grouped-element-spacing: 6px;
+  --radio-width: 12px;
+  --checkbox-width: 13px;
+  --radio-label-spacing: 6px;
+  --range-track-height: 4px;
+  --range-spacing: 10px;
+  --radio-total-width-precalc: calc(var(--radio-width) + var(--radio-label-spacing));
+  --radio-total-width: calc(var(--radio-total-width-precalc));
+  --radio-left: calc(-1 * var(--radio-total-width-precalc));
+  --radio-dot-width: 4px;
+  --radio-dot-top: calc(var(--radio-width) / 2 - var(--radio-dot-width) / 2);
+  --radio-dot-left: calc(-1 * (var(--radio-total-width-precalc)) + var(--radio-width) / 2 - var(--radio-dot-width) / 2);
+  --checkbox-total-width: calc(var(--checkbox-total-width-precalc));
+  --checkbox-left: calc(-1 * var(--checkbox-total-width-precalc));
+  --checkmark-width: 7px;
+  --checkmark-top: 3px;
+  --checkmark-left: 3px;
+  --border-width: 1px;
+  --border-raised-outer: inset -1px -1px var(--window-frame), inset 1px 1px var(--button-highlight);
+  --border-raised-inner: inset -2px -2px var(--button-shadow), inset 2px 2px var(--button-face);
+  --border-sunken-outer: inset -1px -1px var(--button-highlight), inset 1px 1px var(--window-frame);
+  --border-sunken-inner: inset -2px -2px var(--button-face), inset 2px 2px var(--button-shadow);
+  --border-window-outer: inset -1px -1px var(--window-frame), inset 1px 1px var(--button-face);
+  --border-window-inner: inset -2px -2px var(--button-shadow), inset 2px 2px var(--button-highlight);
+  --border-field: inset -1px -1px var(--button-highlight), inset 1px 1px var(--button-shadow), inset -2px -2px var(--button-face), inset 2px 2px var(--window-frame);
+/* Tabs */
+  --border-tab: inset -1px 0 var(--window-frame), inset 1px 1px var(--button-face), inset -2px 0 var(--button-shadow), inset 2px 2px var(--button-highlight);
+}
+html body {
+  color: $color;
+}
+html button,
+html label,
+html input,
+html textarea,
+html select,
+html option,
+html ul.tree-view,
+html .sidebar > ul.sidebar-items,
+html .window,
+html .title-bar {
+  -webkit-font-smoothing: none;
+}
+html u {
+  text-decoration: none;
+  border-bottom: 0.5px solid #222;
+}
+html button {
+  box-sizing: border-box;
+  border: none;
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border-radius: 0;
+  min-width: 75px;
+  min-height: 23px;
+  padding: 0 12px;
+}
+html button:not(:disabled):active {
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  padding: 2px 11px 0 13px;
+}
+html button:focus {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+html button::-moz-focus-inner {
+  border: 0;
+}
+html .vertical-bar {
+  width: 4px;
+  height: 20px;
+  background: #c0c0c0;
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+}
+@media (hover: none) {
+  html button:not(:disabled):hover {
+    box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  }
+}
+html :disabled,
+html :disabled + label {
+  color: var(--button-shadow);
+  text-shadow: 1px 1px 0 var(--button-highlight);
+}
+html .window {
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  padding: 3px;
+}
+html .title-bar {
+  background: linear-gradient(90deg, var(--dialog-blue), var(--dialog-blue-light));
+  padding: 3px 2px 3px 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html .title-bar.inactive {
+  background: linear-gradient(90deg, var(--dialog-gray), var(--dialog-gray-light));
+}
+html .title-bar-text {
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0;
+  margin-right: 24px;
+}
+html .title-bar-controls {
+  display: flex;
+}
+html .title-bar-controls button {
+  padding: 0;
+  display: block;
+  min-width: 16px;
+  min-height: 14px;
+}
+html .title-bar-controls button:active {
+  padding: 0;
+}
+html .title-bar-controls button:focus {
+  outline: none;
+}
+html .title-bar-controls button[aria-label="Minimize"] {
+  background-image: url("/icon/minimize.svg");
+  background-repeat: no-repeat;
+  background-position: bottom 3px left 4px;
+}
+html .title-bar-controls button[aria-label="Maximize"] {
+  background-image: url("/icon/maximize.svg");
+  background-repeat: no-repeat;
+  background-position: top 2px left 3px;
+}
+html .title-bar-controls button[aria-label="Restore"] {
+  background-image: url("/icon/restore.svg");
+  background-repeat: no-repeat;
+  background-position: top 2px left 3px;
+}
+html .title-bar-controls button[aria-label="Help"] {
+  background-image: url("/icon/help.svg");
+  background-repeat: no-repeat;
+  background-position: top 2px left 5px;
+}
+html .title-bar-controls button[aria-label="Close"] {
+  margin-left: 2px;
+  background-image: url("/icon/close.svg");
+  background-repeat: no-repeat;
+  background-position: top 3px left 4px;
+}
+html .window-body {
+  margin: var(--element-spacing);
+}
+html fieldset {
+  border: none;
+  box-shadow: inset -1px -1px var(--button-highlight), inset -2px 1px var(--button-shadow), inset 1px -2px var(--button-shadow), inset 2px 2px var(--button-highlight);
+  padding: calc(2 * var(--border-width) + var(--element-spacing));
+  padding-block-start: var(--element-spacing);
+  margin: 0;
+}
+html legend {
+  background: var(--surface);
+}
+html .field-row {
+  display: flex;
+  align-items: center;
+}
+html .field-row > * + * {
+  margin-left: var(--grouped-element-spacing);
+}
+html [class^="field-row"] + [class^="field-row"] {
+  margin-top: var(--grouped-element-spacing);
+}
+html .field-row-stacked {
+  display: flex;
+  flex-direction: column;
+}
+html .field-row-stacked * + * {
+  margin-top: var(--grouped-element-spacing);
+}
+html label {
+  display: inline-flex;
+  align-items: center;
+}
+html input[type="radio"],
+html input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  background: 0;
+  position: fixed;
+  opacity: 0;
+  border: none;
+}
+html input[type="radio"] + label,
+html input[type="checkbox"] + label {
+  line-height: 13px;
+}
+html input[type="radio"] + label {
+  position: relative;
+  margin-left: var(--radio-total-width);
+}
+html input[type="radio"] + label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-1 * (var(--radio-total-width-precalc)));
+  display: inline-block;
+  width: var(--radio-width);
+  height: var(--radio-width);
+  margin-right: var(--radio-label-spacing);
+  background: url("/icon/radio-border.svg");
+}
+html input[type="radio"]:active + label::before {
+  background: url("/icon/radio-border-disabled.svg");
+}
+html input[type="radio"]:checked + label::after {
+  content: "";
+  display: block;
+  width: var(--radio-dot-width);
+  height: var(--radio-dot-width);
+  top: var(--radio-dot-top);
+  left: var(--radio-dot-left);
+  position: absolute;
+  background: url("/icon/radio-dot.svg");
+}
+html input[type="radio"]:focus + label,
+html input[type="checkbox"]:focus + label {
+  outline: 1px dotted #000;
+}
+html input[type="radio"][disabled] + label::before {
+  background: url("/icon/radio-border-disabled.svg");
+}
+html input[type="radio"][disabled]:checked + label::after {
+  background: url("/icon/radio-dot-disabled.svg");
+}
+html input[type="checkbox"] + label {
+  position: relative;
+  margin-left: var(--checkbox-total-width);
+}
+html input[type="checkbox"] + label::before {
+  content: "";
+  position: relative;
+  left: calc(-1 * (var(--checkbox-total-width-precalc)));
+  display: inline-block;
+  width: var(--checkbox-width);
+  height: var(--checkbox-width);
+  background: var(--button-highlight);
+  box-shadow: var(--border-field);
+  margin-right: var(--radio-label-spacing);
+}
+html input[type="checkbox"]:active + label::before {
+  background: var(--surface);
+}
+html input[type="checkbox"]:checked + label::after {
+  content: "";
+  display: block;
+  width: var(--checkmark-width);
+  height: var(--checkmark-width);
+  position: absolute;
+  top: var(--checkmark-top);
+  left: calc(-1 * (var(--checkbox-total-width-precalc)) + var(--checkmark-left) + 4px);
+  left: 3px;
+  background: url("/icon/checkmark.svg");
+}
+html input[type="checkbox"][disabled] + label::before {
+  background: var(--surface);
+}
+html input[type="checkbox"][disabled]:checked + label::after {
+  background: url("/icon/checkmark-disabled.svg");
+}
+html input[aria-label="Search"],
+html input[type="text"],
+html input[type="password"],
+html input[type="email"],
+html select,
+html textarea {
+  padding: 3px 4px;
+  border: none;
+  box-shadow: var(--border-field);
+  background-color: var(--button-highlight);
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+html input[aria-label="Search"],
+html input[type="text"],
+html input[type="password"],
+html input[type="email"],
+html select {
+  height: 2em;
+}
+html input[aria-label="Search"],
+html input[type="text"],
+html input[type="password"],
+html input[type="email"] {
+  line-height: 2;
+}
+html select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  padding-right: 32px;
+  background-image: url("/icon/button-down.svg");
+  background-position: top 2px right 2px;
+  background-repeat: no-repeat;
+  border-radius: 0;
+}
+html select:focus {
+  color: var(--button-highlight);
+  background-color: var(--dialog-blue);
+}
+html select:focus option {
+  color: #000;
+  background-color: #fff;
+}
+html select:active {
+  background-image: url("/icon/button-down-active.svg");
+}
+html select:focus,
+html input[aria-label="Search"]:focus,
+html input[type="text"]:focus,
+html input[type="password"]:focus,
+html input[type="email"]:focus,
+html textarea:focus {
+  outline: none;
+}
+html input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+html input[type="range"]:focus {
+  outline: none;
+}
+html input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 21px;
+  width: 11px;
+  background: url("/icon/indicator-horizontal.svg");
+  transform: translateY(-8px);
+}
+html input[type="range"].has-box-indicator::-webkit-slider-thumb {
+  background: url("/icon/indicator-rectangle-horizontal.svg");
+  transform: translateY(-10px);
+}
+html input[type="range"].has-box-indicator::-moz-range-thumb {
+  background: url("/icon/indicator-rectangle-horizontal.svg");
+  transform: translateY(0px);
+}
+html input[type="range"]::-moz-range-thumb {
+  height: 21px;
+  width: 11px;
+  border: 0;
+  border-radius: 0;
+  background: url("/icon/indicator-horizontal.svg");
+  transform: translateY(2px);
+}
+html input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  box-sizing: border-box;
+  background: #000;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #a9a9a9, -1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, -1px 1px 0 #fff, 1px -1px #a9a9a9;
+}
+html input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  box-sizing: border-box;
+  background: #000;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #a9a9a9, -1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, -1px 1px 0 #fff, 1px -1px #a9a9a9;
+}
+html .is-vertical {
+  display: inline-block;
+  width: 4px;
+  height: 150px;
+  transform: translateY(50%);
+}
+html .is-vertical > input[type="range"] {
+  width: 150px;
+  height: 4px;
+  margin: 0 calc(var(--grouped-element-spacing) + var(--range-spacing)) 0;
+  transform-origin: left;
+  transform: rotate(270deg) translateX(calc(-50% + var(--element-spacing)));
+}
+html .is-vertical > input[type="range"]::-webkit-slider-runnable-track {
+  border-left: 1px solid #808080;
+  border-right: 0;
+  border-bottom: 1px solid #808080;
+  box-shadow: -1px 0 0 #fff, -1px 1px 0 #fff, 0 1px 0 #fff, 1px 0 0 #a9a9a9, 1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, 1px 1px 0 #fff, -1px -1px #a9a9a9;
+}
+html .is-vertical > input[type="range"]::-moz-range-track {
+  border-left: 1px solid #808080;
+  border-right: 0;
+  border-bottom: 1px solid #808080;
+  box-shadow: -1px 0 0 #fff, -1px 1px 0 #fff, 0 1px 0 #fff, 1px 0 0 #a9a9a9, 1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, 1px 1px 0 #fff, -1px -1px #a9a9a9;
+}
+html .is-vertical > input[type="range"]::-webkit-slider-thumb {
+  transform: translateY(-8px) scaleX(-1);
+}
+html .is-vertical > input[type="range"].has-box-indicator::-webkit-slider-thumb {
+  transform: translateY(-10px) scaleX(-1);
+}
+html .is-vertical > input[type="range"].has-box-indicator::-moz-range-thumb {
+  transform: translateY(0px) scaleX(-1);
+}
+html .is-vertical > input[type="range"]::-moz-range-thumb {
+  transform: translateY(2px) scaleX(-1);
+}
+html a {
+  color: var(--link-blue);
+}
+html a:focus {
+  outline: 1px dotted var(--link-blue);
+}
+html .tree-view.tree-view,
+html .sidebar > ul.tree-view,
+html .tree-view.sidebar-items,
+html .sidebar > ul.sidebar-items {
+  display: block;
+  background: var(--button-highlight);
+  box-shadow: var(--border-field);
+  padding: 6px;
+  margin: 0;
+}
+html .tree-view.tree-view li,
+html .sidebar > ul.tree-view li,
+html .tree-view.sidebar-items li,
+html .sidebar > ul.sidebar-items li {
+  list-style-type: none;
+}
+html .tree-view.tree-view a,
+html .sidebar > ul.tree-view a,
+html .tree-view.sidebar-items a,
+html .sidebar > ul.sidebar-items a {
+  text-decoration: none;
+  color: #000;
+}
+html .tree-view.tree-view a.active,
+html .sidebar > ul.tree-view a.active,
+html .tree-view.sidebar-items a.active,
+html .sidebar > ul.sidebar-items a.active {
+  background-color: var(--dialog-blue);
+  color: var(--button-highlight);
+}
+html .tree-view.tree-view ul,
+html .sidebar > ul.tree-view ul,
+html .tree-view.sidebar-items ul,
+html .sidebar > ul.sidebar-items ul {
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px dotted #808080;
+}
+html .tree-view.tree-view ul > li,
+html .sidebar > ul.tree-view ul > li,
+html .tree-view.sidebar-items ul > li,
+html .sidebar > ul.sidebar-items ul > li {
+  position: relative;
+}
+html .tree-view.tree-view ul > li::before,
+html .sidebar > ul.tree-view ul > li::before,
+html .tree-view.sidebar-items ul > li::before,
+html .sidebar > ul.sidebar-items ul > li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -16px;
+  top: 14px;
+  width: 12px;
+  border-bottom: 1px dotted #808080;
+}
+html .tree-view.tree-view ul > li:last-child::after,
+html .sidebar > ul.tree-view ul > li:last-child::after,
+html .tree-view.sidebar-items ul > li:last-child::after,
+html .sidebar > ul.sidebar-items ul > li:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 16px;
+  bottom: 0px;
+  width: 8px;
+  background: var(--button-highlight);
+}
+html .tree-view.tree-view ul details > summary:before,
+html .sidebar > ul.tree-view ul details > summary:before,
+html .tree-view.sidebar-items ul details > summary:before,
+html .sidebar > ul.sidebar-items ul details > summary:before {
+  margin-left: -22px;
+  position: relative;
+  z-index: 1;
+}
+html .tree-view.tree-view details,
+html .sidebar > ul.tree-view details,
+html .tree-view.sidebar-items details,
+html .sidebar > ul.sidebar-items details {
+  margin-top: 0;
+}
+html .tree-view.tree-view details > summary:before,
+html .sidebar > ul.tree-view details > summary:before,
+html .tree-view.sidebar-items details > summary:before,
+html .sidebar > ul.sidebar-items details > summary:before {
+  text-align: center;
+  display: block;
+  float: left;
+  content: "+";
+  border: 1px solid #808080;
+  width: 8px;
+  height: 9px;
+  line-height: 8px;
+  margin-right: 5px;
+  padding-left: 1px;
+  background-color: #fff;
+}
+html .tree-view.tree-view details[open] summary,
+html .sidebar > ul.tree-view details[open] summary,
+html .tree-view.sidebar-items details[open] summary,
+html .sidebar > ul.sidebar-items details[open] summary {
+  margin-bottom: 0;
+}
+html .tree-view.tree-view details[open] > summary:before,
+html .sidebar > ul.tree-view details[open] > summary:before,
+html .tree-view.sidebar-items details[open] > summary:before,
+html .sidebar > ul.sidebar-items details[open] > summary:before {
+  content: "-";
+}
+html ul.tree-view ul,
+html .sidebar > ul.sidebar-items ul,
+html ul.tree-view li,
+html .sidebar > ul.sidebar-items li {
+  margin-top: 3px;
+}
+html pre:not([class^="language-"]) {
+  display: block;
+  background: var(--button-highlight);
+  box-shadow: var(--border-field);
+  padding: 12px 8px;
+  margin: 0;
+}
+html summary:focus {
+  outline: 1px dotted #000;
+}
+html .window[role=tabpanel] {
+  position: relative;
+  z-index: 2;
+}
+html menu[role=tablist] {
+  position: relative;
+  margin: 0 0 -2px 0;
+  text-indent: 0;
+  list-style-type: none;
+  display: flex;
+  padding-left: 3px;
+}
+html menu[role=tablist] > li {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: var(--border-tab);
+  z-index: 1;
+}
+html menu[role=tablist] > li[aria-selected=true] {
+  padding-bottom: 2px;
+  margin-top: -2px;
+  background-color: var(--surface);
+  position: relative;
+  z-index: 8;
+  margin-left: -3px;
+}
+html menu[role=tablist] > li > a {
+  display: block;
+  color: #222;
+  margin: 6px;
+  text-decoration: none;
+}
+html menu[role=tablist] > li[aria-selected=true] > a:focus {
+  outline: none;
+}
+html menu[role=tablist] > li > a:focus {
+  outline: 1px dotted #222;
+}
+html menu[role=tablist].multirows > li {
+  flex-grow: 1;
+  text-align: center;
+}
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 17px;
+}
+::-webkit-scrollbar-corner {
+  background: var(--button-face);
+}
+::-webkit-scrollbar-track {
+  background-image: url("/icon/scrollbar-background.svg");
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-face);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+}
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+}
+::-webkit-scrollbar-button:vertical:start {
+  height: 17px;
+  background-image: url("/icon/button-up.svg");
+}
+::-webkit-scrollbar-button:vertical:end {
+  height: 17px;
+  background-image: url("/icon/button-down.svg");
+}
+::-webkit-scrollbar-button:horizontal:start {
+  width: 16px;
+  background-image: url("/icon/button-left.svg");
+}
+::-webkit-scrollbar-button:horizontal:end {
+  width: 16px;
+  background-image: url("/icon/button-right.svg");
+}

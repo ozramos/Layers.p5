@@ -1,0 +1,122 @@
+html {
+  // Messages
+  .custom-block.warning {
+    .custom-block-title {
+      color: darken(#b29400, 25%);
+    }
+  }
+
+  // Hide things
+  .site-name.can-hide,
+  .nav-links.can-hide {
+    display: none
+  }
+
+  // Suggestions
+  .suggestions {
+    border-radius: 0
+  }
+
+  // Buttons
+  button {
+    color: $color;
+    padding: 1em;
+
+    &:hover, &:active {
+      background: inherit
+    }
+
+    &:not(:disabled):active {
+      padding: 1em
+    }
+
+    &.code-group__nav-tab {
+      background: #444;
+      
+      &:not(:disabled):active {
+        padding: 5px !important;
+      }
+
+      &:not(:disabled).code-group__nav-tab-active {
+        box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+        background: #222;
+      }
+    }
+  }
+
+  // Dropdowns
+  select {
+    background-size: 23px
+  }
+
+  // Code areas
+  div[class*="language-"],
+  .theme-default-content pre, .theme-default-content pre[class*="language-"] {
+    border-radius: 0
+  }
+
+  .theme-default-content code {
+    color: $color;
+    background-color: darken($panelBg, 10%)
+  }
+
+  // Message blocks
+  .custom-block.warning {
+    background-color: rgba(255,229,100,0.7)
+  }
+
+  // Blockquotes
+  blockquote {
+    background: #dfdfdf;
+    padding-top: 2em;
+    padding-bottom: 2em
+  }
+
+  // Tables
+  tr:nth-child(2n) {
+    background: darken($panelBg, 8%)
+  }
+    
+  // Content
+  .page-edit .edit-link a {
+    color: $link
+  }
+
+  .page-edit .last-updated .prefix {
+    color: $color
+  }
+  .page-edit .last-updated .time {
+    color: $color;
+    opacity: 0.75
+  }
+
+  .icon.outbound {
+    color: $link;
+    opacity: 0.45
+  }
+
+  // Notifications
+  .custom-container {
+    box-shadow: var(--border-window-outer), var(--border-window-inner);
+    border-left: 0 !important;
+  }
+
+  // 98.css
+  fieldset {
+    legend {
+      font-weight: bold
+    }
+  }
+
+  .code-group__nav {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .code-group__nav-tab {
+    font-weight: normal !important;
+  }
+  .code-group__nav-tab-active {
+    border-bottom: none;
+    background: var(--surface) !important;
+  }
+}

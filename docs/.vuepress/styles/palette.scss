@@ -1,0 +1,32 @@
+// Colors
+$color: #222222;
+
+$panelBg: #c0c0c0;
+$link: #00f;
+// Border top/left outer
+$borderTLO: #dfdfdf;
+// Border top/left inner
+$borderTLI: #fff;
+// Border bottom/right outer
+$borderBRO: #000;
+// Border bottom/right inner
+$borderBRI: #808080;
+
+// MediaQueries
+$MQMobile: 900px;
+$MQDesktop: 1400px;
+
+
+// Blocks
+$blockRed: #ff628c;
+$blockOrange: #FF9D00;
+$blockYellow: #fad000;
+$blockGreen: #2ca300;
+$blockTeal: #2EC4B6;
+$blockPurple: #5D37F0;
+
+// @see https://vuepress.vuejs.org/config/#palette-styl
+$accentColor: $link;
+$badgeErrorColor: $blockRed;
+$badgeTipColor: $blockTeal;
+$badgeWarningColor: $blockOrange;

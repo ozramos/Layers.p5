@@ -1,0 +1,59 @@
+button {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: $accentColor;
+  padding: .8rem 1.6rem;
+  border-radius: 4px;
+  transition: background-color .1s ease;
+  box-sizing: border-box;
+  border-color: lighten($accentColor, 10%);
+  border-bottom: 1px solid darken($accentColor, 10%);
+  cursor: pointer;
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background: lighten($accentColor, 10%);
+    border-color: lighten($accentColor, 20%);
+    border-bottom-color: $accentColor;
+  }
+
+  &:active {
+    background: darken($accentColor, 10%);
+    border-color: $accentColor;
+    border-bottom-color: darken($accentColor, 20%);
+  }
+
+  &.negative {
+    background-color: $blockRed;
+    border-color: lighten($blockRed, 10%);
+    border-bottom-color: darken($blockRed, 10%);
+
+    &:hover {
+      background: lighten($blockRed, 10%);
+      border-color: lighten($blockRed, 20%);
+      border-bottom-color: $blockRed;
+    }
+
+    &:active {
+      background: darken($blockRed, 10%);
+      border-color: $blockRed;
+      border-bottom-color: darken($blockRed, 20%);
+    }
+  }
+}
+
+html {
+  header.navbar button {
+    padding: .4rem .8rem;
+    font-size: .8rem;
+
+    &:active {
+      padding: .4rem .8rem
+    }
+  }
+}

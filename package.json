@@ -1,0 +1,48 @@
+{
+  "name": "layers.p5",
+  "version": "0.0.34",
+  "description": "A layer-based p5.js framework with live editing and MIDI support",
+  "main": "dist/layers.p5.js",
+  "scripts": {
+    "start": "vuepress dev docs",
+    "build": "npm run build:lib && npm run build:docs",
+    "build:lib": "rollup --config rollup.config.js",
+    "build:docs": "vuepress build docs",
+    "test": "npx http-server docs/.vuepress/dist",
+    "postinstall": "node ./postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everestwonder/layers.p5.git"
+  },
+  "author": "Everest Wonder <hey@everestwonder.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/everestwonder/layers.p5/issues"
+  },
+  "homepage": "https://github.com/everestwonder/layers.p5#readme",
+  "dependencies": {
+    "@tweakpane/plugin-essentials": "^0.1.4",
+    "emoji-name-map": "^1.2.9",
+    "gemoji": "^7.1.0",
+    "lodash-es": "^4.17.21",
+    "p5.capture": "^1.2.0",
+    "parallax-js": "^3.1.0",
+    "tweakpane": "^3.0.8",
+    "webmidi": "^3.0.20"
+  },
+  "devDependencies": {
+    "@rollup/plugin-replace": "^3.0.1",
+    "@vuepress/plugin-container": "^2.0.0-beta.48",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.45",
+    "@vuepress/plugin-theme-data": "^2.0.0-beta.45",
+    "cpx": "^1.5.0",
+    "p5": "^1.4.1",
+    "rollup": "^2.67.0",
+    "rollup-plugin-external-globals": "^0.6.1",
+    "vuepress": "^2.0.0-beta.45"
+  },
+  "resolutions": {
+    "vite": "2.8.6"
+  }
+}

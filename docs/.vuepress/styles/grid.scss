@@ -1,0 +1,41 @@
+.layersp5-layers-wrap-outer {
+  height: 450px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 -10px;
+  flex-flow: row wrap;
+
+  .col-6 {
+    width: 50%;
+
+    .layersp5-layers-wrap-outer {
+      height: 250px;
+    }
+  }
+  .col-12 {
+    width: 100%;
+  }
+  .col-5 {
+    width: 20%;
+  }
+
+  [class^='col'] {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .row {
+    display: block;
+    
+    > [class^='col'] {
+      width: auto;
+    }
+  }
+}
