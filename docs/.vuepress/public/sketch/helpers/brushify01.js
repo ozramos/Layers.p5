@@ -43,7 +43,7 @@ Layers.create(() => {
       colorMode(RGB)
       $smear.forEach(point => {
         const col = [...point.color]
-        const darken = random(100, 255)
+        const darken = random(0, 150)
         col[0] -= darken
         col[1] -= darken
         col[2] -= darken
