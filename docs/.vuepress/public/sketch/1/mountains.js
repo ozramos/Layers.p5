@@ -1,13 +1,18 @@
 export default function () {
   class Mountain {
-    constructor (layer) {
-      const numPoints = ~~random(10, 50)
+    constructor (layer, opts) {
+      this.layer = layer
+      this.opts = opts
+      
+      const numPoints = 2//~~random(10, 50)
       const spacing = layer.width / numPoints
       this.peak = layer.height + (random() > .75 ? random(layer.height*.25, layer.height*.7) : random(layer.height*.25, layer.height*1.5))
       this.points = []
+      this.col = random(layer.colors)
 
       noiseSeed(random()*99999)
-      const detail = random(.01, .05)
+      noStroke()
+      const detail = random(.01, .2)
 
       // Create mountain range
       this.points.push([-2*spacing, layer.height+this.peak*2])
@@ -20,6 +25,10 @@ export default function () {
     }
 
     draw () {
+      const col = [...this.col]
+      col[3] -= random(100, 255)
+      fill(col)
+
       beginShape()
       for (let i = 0; i < this.points.length; i++) {
         curveVertex(this.points[i][0], this.points[i][1])
@@ -34,6 +43,8 @@ export default function () {
   Layers.create(() => {
     new Layer({
       id: 'mountains',
+      colors: ['#ed360a'],
+      colorMode: [RGB, 255, 255, 255, 255],
 
       menu: {},
       store: {
@@ -46,7 +57,9 @@ export default function () {
         $mountains = []
 
         for (let i = 0; i < $numMountains; i++) {
-          $mountains.push(new Mountain(this))
+          $mountains.push(new Mountain(this, {
+            opacity: i/$numMountains
+          }))
         }
 
         // Sort by peak

@@ -68,7 +68,6 @@ export default class Layer {
       // Canvas
       canvas: null,
       offscreen: null,
-      colors: Layers.default.colors,
       colorMode: Layers.default.colorMode,
 
       // Listeners
@@ -84,7 +83,7 @@ export default class Layer {
       store: {},
       menu: {}
     })
-
+    
     // Setup canvas
     this.generate()
 
@@ -151,7 +150,6 @@ export default class Layer {
     if (!this.height) this.height = this.opts.height
     if (!this.disabled) this.disabled = this.opts.disabled
     if (!this.menuDisabled) this.menuDisabled = this.opts.menuDisabled
-    if (!this.colors) this.colors = this.opts.colors
     if (!this.colorMode) this.colorMode = this.opts.colorMode
     if (!this.beforeGenerate) this.beforeGenerate = this.opts.beforeGenerate
     if (!this.afterGenerate) this.afterGenerate = this.opts.afterGenerate
@@ -168,7 +166,7 @@ export default class Layer {
     if (!this.waitFor) this.waitFor = this.opts.waitFor
     if (!this.stack) this.stack = this.opts.stack
     if (!this.things) this.things = this.opts.things
-
+    
     // Always reset
     this.noLoop = this.opts.noLoop
 
@@ -217,6 +215,16 @@ export default class Layer {
     this.canvas.clear()
     this.offscreen.clear()
 
+    // Handle colors
+    if (!this.opts.colors) {
+      this.opts.colors = Layers.default.colors
+    }
+    // Convert colors to arrays
+    this.opts.colors.forEach((col, n) => {
+      this.opts.colors[n] = this.canvas.color(col).levels
+    })
+    this.colors = this.opts.colors
+    
     // Throttled functions
     this.throttledDraw = throttle(this.draw.bind(this), 1000/this.opts.fps)
 
