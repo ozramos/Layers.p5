@@ -1,25 +1,22 @@
 export default function () {
   // @see https://gorillasun.de/blog/an-algorithm-for-irregular-grids
   // @see https://openprocessing.org/sketch/1555985
-  const createCell = function (tower, posX, posY, wid, hei, depth){
+  const createCell = function (tower, x, y, w, h, depth){
     if(depth>0){
       var div = random(0.25, 0.75)
       if(random()>0.5){
-        createCell(tower, posX, posY, wid, hei*div, depth-1)
-        createCell(tower, posX, posY+hei*div, wid, hei*(1-div), depth-1)
+        createCell(tower, x, y, w, h*div, depth-.5)
+        createCell(tower, x, y+h*div, w, h*(1-div), depth-1)
       }else{
-        createCell(tower, posX, posY, wid*div, hei, depth-1)
-        createCell(tower, posX+wid*div, posY, wid*(1-div), hei, depth-1)
+        createCell(tower, x, y, w*div, h, depth-1)
+        createCell(tower, x+w*div, y, w*(1-div), h, depth-1)
       }
   
     }else{
-      const col = tower.fill
-      col[0] += 50 - noise(posX, posY) * 100
-      col[1] += 50 - noise(posX*random(10000), posY*random(10000)) * 100
-      col[2] += 50 - noise(posX*random(10000), posY*random(10000)) * 100
-      
-      fill(col)
-      rect(posX, posY, wid, hei)
+      noFill()
+      stroke(255)
+      strokeWeight(minSize*.0065)
+      rect(x, y, w, h)
     }
   }
 
@@ -28,13 +25,12 @@ export default function () {
   class Tower {
     constructor (layer) {
       this.width = random(minSize*.15, minSize*.95)
-      this.x = random(this.width*1.1, layer.width-this.width*1.1)
+      this.x = layer.width/2 - this.width/2
       this.height = random(minSize*.25, minSize*.95)
-      this.depth = ~~random(3, 7)
+      this.depth = ~~random(3, 5)
 
-      this.fill = random(layer.colors)
-
-      createCell(this, this.x, layer.height-this.height, this.width, this.height, this.depth)
+      // createCell(this, this.x, layer.height-this.height, this.width, this.height, this.depth)
+      createCell(this, this.x, layer.height/2-this.height/2, this.width, this.height, this.depth)
     }
   }
 
@@ -59,6 +55,10 @@ export default function () {
         for (let i = 0; i < $numTowers; i++) {
           $towers.push(new Tower(this))
         }
+
+        const margin = minSize*.015
+        strokeWeight(minSize*.0045)
+        rect(margin, margin, this.width-margin*2, this.height-margin*2)
       },
 
       draw () {}

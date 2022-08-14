@@ -53,6 +53,8 @@ export default function () {
       },
 
       setup () {
+        background('#e4bc81')
+        
         $numMountains = random(3, 15)
         $mountains = []
 
